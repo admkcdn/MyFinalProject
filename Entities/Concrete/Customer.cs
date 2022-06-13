@@ -1,4 +1,4 @@
-﻿using Entities.Abstract;
+﻿using ProjectCore.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
