@@ -9,7 +9,12 @@ namespace ConsoleUİ
     {
         static void Main(string[] args)
         {
-            //ProductTest();
+            ProductTest();
+            //CategoryTest();
+        }
+
+        private static void CategoryTest()
+        {
             CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
             foreach (var category in categoryManager.GetAll())
             {
@@ -17,13 +22,13 @@ namespace ConsoleUİ
             }
         }
 
-        private void ProductTest()
+        private static void ProductTest()
         {
             ProductManager productManager = new ProductManager(new EfProductDal());
 
-            foreach (var product in productManager.GetAllByCategoryId(2))
+            foreach (var product in productManager.GetProductDetails())
             {
-                Console.WriteLine(product.ProductName + "----" + product.UnitPrice + " **** Category: " + product.CategoryId);
+                Console.WriteLine(product.ProductName + " - " + product.CategoryName);
             }
             Console.WriteLine("/-*/-*/-*/-*/-*/-*/-*/-*/-*/-*/-*/-*/-*/-*/-*/-*/-*/-*/-*/-*/-*/-*/-*/-*/-*/-*/-*/-*/-*/-*/-*/-*/-*/");
             foreach (var productSec in productManager.GettByUnitPrice(200, 2000))
