@@ -1,5 +1,6 @@
 ﻿using Entities.Concrete;
 using Entities.DTOs;
+using ProjectCore.Utilities.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +11,12 @@ namespace Business.Abstract
 {
     public interface IProductService
     {
-        List<Product> GetAll();
-        List<Product> GetAllByCategoryId(int id);
-        List<Product> GettByUnitPrice(decimal min, decimal max);
-        List<ProductDetailDto> GetProductDetails();
+        IDataResult<List<Product>> GetAll();
+        IDataResult<List<Product>> GetAllByCategoryId(int id);
+        IDataResult<List<Product>> GettByUnitPrice(decimal min, decimal max);
+        IDataResult<List<ProductDetailDto>> GetProductDetails();
+        IResult add(Product product);
+        IResult Update(Product product);
+        IDataResult<Product> GetById(int productId);
     }
 }
